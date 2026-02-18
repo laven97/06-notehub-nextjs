@@ -2,7 +2,11 @@ import { NoteFormValues } from "@/types/note";
 import css from "./NoteForm.module.css";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { QueryClient, useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import { createNote } from "@/lib/api";
 
 interface NoteFormProps {
@@ -20,7 +24,7 @@ const validationSchema = Yup.object({
     .required("Tag is required"),
 });
 
-export default function NoteForm({ onCancel}: NoteFormProps) {
+export default function NoteForm({ onCancel }: NoteFormProps) {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
@@ -42,14 +46,13 @@ export default function NoteForm({ onCancel}: NoteFormProps) {
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => mutation.mutate(values)}
-      
     >
       {({ isValid }) => (
         <Form className={css.form}>
           <div className={css.formGroup}>
             <label htmlFor="title">Title</label>
             <Field id="title" type="text" name="title" className={css.input} />
-            <ErrorMessage name="title" className={css.error} id="title" />
+            <ErrorMessage name="title" className={css.error} component="span" />
           </div>
 
           <div className={css.formGroup}>
@@ -58,9 +61,14 @@ export default function NoteForm({ onCancel}: NoteFormProps) {
               id="content"
               name="content"
               rows={8}
+              as="textarea"
               className={css.textarea}
             />
-            <ErrorMessage name="content" className={css.error} />
+            <ErrorMessage
+              name="content"
+              className={css.error}
+              component="span"
+            />
           </div>
 
           <div className={css.formGroup}>
@@ -72,7 +80,7 @@ export default function NoteForm({ onCancel}: NoteFormProps) {
               <option value="Meeting">Meeting</option>
               <option value="Shopping">Shopping</option>
             </Field>
-            <ErrorMessage name="tag" className={css.error} />
+            <ErrorMessage name="tag" className={css.error} component="span" />
           </div>
 
           <div className={css.actions}>

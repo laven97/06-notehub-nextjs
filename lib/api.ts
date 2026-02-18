@@ -1,5 +1,5 @@
 import Note from "@/types/note";
-import axios, { AxiosResponse } from "axios";
+import axios, { Axios, AxiosResponse } from "axios";
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_NOTEHUB_API_URL,
@@ -37,6 +37,7 @@ export async function createNote(
   return response.data;
 }
 
-export async function deleteNote(id: string): Promise<void> {
-  await api.delete(`/notes/${id}`);
+export async function deleteNote(id: string): Promise<Note> {
+  const responce: AxiosResponse<Note> = await api.delete(`/notes/${id}`);
+  return responce.data
 }

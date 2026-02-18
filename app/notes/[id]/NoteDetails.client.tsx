@@ -18,9 +18,9 @@ export default function NoteDetailClient() {
     refetchOnMount: false,
   });
 
-  if (isLoading) return <p>Loading, please wait...</p>;
+  if (isLoading) return <p>Loading...</p>;
 
-  if (isError || !note) return <p>Loading, please wait...</p>;
+  if (isError || !note) return <p>Error...</p>;
 
   return (
     <div className={css.container}>
