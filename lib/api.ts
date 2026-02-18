@@ -26,8 +26,8 @@ export async function fetchNotes(
 }
 
 export async function fetchNoteById(id: string): Promise<Note> {
-  const responce: AxiosResponse<Note> = await api.get(`/notes/${id}`);
-  return responce.data;
+  const response: AxiosResponse<Note> = await api.get(`/notes/${id}`);
+  return response.data;
 }
 
 export async function createNote(
@@ -38,6 +38,6 @@ export async function createNote(
 }
 
 export async function deleteNote(id: string): Promise<Note> {
-  const responce: AxiosResponse<Note> = await api.delete(`/notes/${id}`);
-  return responce.data
+  const response: AxiosResponse<Note> = await api.delete(`/notes/${id}`);
+  return response.data;
 }
