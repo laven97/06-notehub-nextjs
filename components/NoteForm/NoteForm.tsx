@@ -1,4 +1,4 @@
-import { NoteFormValues } from "@/types/notes";
+import { NoteFormValues } from "@/types/note";
 import css from "./NoteForm.module.css";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";

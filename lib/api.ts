@@ -1,4 +1,4 @@
-import Note from "@/types/notes";
+import Note from "@/types/note";
 import axios, { AxiosResponse } from "axios";
 
 const api = axios.create({
