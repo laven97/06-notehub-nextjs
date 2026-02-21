@@ -25,12 +25,11 @@ export default function NotesClient() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["notes", search, page],
     queryFn: () => fetchNotes(search, page),
-    placeholderData: (prev)=> prev
+    placeholderData: (prev) => prev,
   });
 
-  const totalPages = data ? data.totalPages : 0;
-  const notes = data? data.notes : [];
-
+  const totalPages = data?.totalPages ?? 0;
+  const notes = data?.notes ?? [];
 
   return (
     <div className={css.app}>
