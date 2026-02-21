@@ -2,7 +2,7 @@ import Note from "@/types/note";
 import axios, { Axios, AxiosResponse } from "axios";
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_NOTEHUB_API_URL,
+  baseURL: "https://notehub-public.goit.study/api",
   headers: {
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
   },
